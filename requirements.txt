@@ -1,0 +1,9 @@
+PyMuPDF==1.23.21
+bnlp-toolkit==0.0.4
+nltk==3.8.1
+sentence-transformers==2.2.2
+torch>=1.10.0
+transformers>=4.6.0
+scikit-learn
+numpy
+scipy
