@@ -1,18 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import re
 import fitz
 from bnlp import BasicTokenizer
 from bnlp import NLTKTokenizer
 import nltk
 from sentence_transformers import SentenceTransformer, util
-
-
-# In[2]:
 
 
 def extract_text_from_pdf(pdf_path):
@@ -23,9 +14,6 @@ def extract_text_from_pdf(pdf_path):
     return full_text.strip()
 
 
-# In[7]:
-
-
 def bangla_token(text):
     text = re.sub(r'\n+', '\n', text)
     text = re.sub(r'\s+', ' ', text)
@@ -33,9 +21,6 @@ def bangla_token(text):
     sentence_tokens = bnltk.sentence_tokenize(text)
     cleaned_texts = [text.replace('\n', ' ') for text in sentence_tokens]
     return cleaned_texts
-
-
-# In[4]:
 
 
 def find_closest_match(query, sentences):
@@ -49,12 +34,8 @@ def find_closest_match(query, sentences):
     best_idx = scores.argmax()
     return sentences[best_idx]
 
-
-# In[5]:
-
-
 def main():
-    pdf_path = "E:\python env\data\HSC26-Bangla1st-Paper.pdf"
+    pdf_path = "HSC26-Bangla1st-Paper.pdf"
     query = input("আপনার প্রশ্ন লিখুন: ")
 
     print("Extracting text from PDF...")
@@ -71,14 +52,9 @@ def main():
     print(best_match)
 
 
-# In[8]:
-
-
 if __name__ == "__main__":
     main()
 
-
-# In[ ]:
 
 
 
